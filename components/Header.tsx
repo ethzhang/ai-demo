@@ -7,16 +7,16 @@ export default function Header() {
       <Link href="/" className="flex space-x-3">
         <Image
           alt="header text"
-          src="/writingIcon.png"
-          className="sm:w-12 sm:h-12 w-8 h-8"
-          width={32}
+          src="/classnow-logo.png"
+          className=" "
+          width={74}
           height={32}
         />
         <h1 className="sm:text-4xl text-2xl font-bold ml-2 tracking-tight">
-          twitterBio.com
+          ClassNow AI Helper
         </h1>
       </Link>
-      <a
+      {/* <a
         href="https://vercel.com/templates/next.js/twitter-bio"
         target="_blank"
         rel="noreferrer"
@@ -28,7 +28,7 @@ export default function Header() {
           width={32}
           height={28}
         />
-      </a>
+      </a> */}
     </header>
   );
 }
