@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
   const [desc, setDesc] = useState("");
   const [lang, setLang] = useState<VibeType>("English");
-  const [generatedIntro, setGeneratedIntro] = useState<String>("");
+  const [generatedIntro, setGeneratedIntro] = useState<string>("");
 
   console.log("Streamed response: ", generatedIntro);
   
@@ -39,7 +39,8 @@ const Home: NextPage = () => {
   let text = desc || defaultDesc;
 
   const prompt =
-    `Generate an online course introduction in ${promptObj[lang]} that is friendly, but still attractive. Use a very eye-catching title and show the content in a list.
+    `Generate an online course introduction in ${promptObj[lang]} that is friendly but has academic language. Use a very eye-catching title and display the content in a list format.
+    The final paragraph of text starts with emoji, and should be provocative and entice users to sign up.
     The course title is ${text}${text.slice(-1) === "." ? "" : "."}
     `;
 
@@ -156,29 +157,23 @@ const Home: NextPage = () => {
                 <>
                   <div>
                     <h2 className="sm:text-4xl text-3xl font-bold text-slate-900 mx-auto">
-                      Your course intro
+                      Your generated course intro
                     </h2>
                   </div>
-                  <div className="space-y-8 flex flex-col items-center justify-center max-w-xl mx-auto">
-                    {generatedIntro
-                      .substring(generatedIntro.indexOf("1") + 3)
-                      .split("2.")
-                      .map((generatedIntro) => {
-                        return (
-                          <div
-                            className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border"
-                            onClick={() => {
-                              navigator.clipboard.writeText(generatedIntro);
-                              toast("Bio copied to clipboard", {
-                                icon: "✂️",
-                              });
-                            }}
-                            key={generatedIntro}
-                          >
-                            <p>{generatedIntro}</p>
-                          </div>
-                        );
-                      })}
+                  <div className="space-y-8 flex flex-col items-center justify-center max-w-xl mx-auto whitespace-pre-wrap">
+                    
+                    <div
+                      className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border text-left"
+                      onClick={() => {
+                        navigator.clipboard.writeText(generatedIntro);
+                        toast("Course intro copied to clipboard", {
+                          icon: "✂️",
+                        });
+                      }}
+                    >
+                      <p>{generatedIntro}</p>
+                    </div>
+                       
                   </div>
                 </>
               )}
