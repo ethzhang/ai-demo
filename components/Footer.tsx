@@ -6,21 +6,30 @@ export default function Footer() {
       <div>
         Powered by{" "}
         <a
-          href="https://openai.com/"
+          href="https://beta.openai.com/account"
           target="_blank"
           rel="noreferrer"
           className="font-bold hover:underline transition underline-offset-2"
         >
-          OpenAI{" "}
+          OpenAI
         </a>
-        and{" "}
+        {" + "}
         <a
           href="https://vercel.com/"
           target="_blank"
           rel="noreferrer"
           className="font-bold hover:underline transition underline-offset-2"
         >
-          Vercel Edge Functions.
+          Vercel
+        </a>
+        {" + "}
+        <a
+          href="https://nextjs.org/"
+          target="_blank"
+          rel="noreferrer"
+          className="font-bold hover:underline transition underline-offset-2"
+        >
+          Next.js
         </a>
       </div>
       
