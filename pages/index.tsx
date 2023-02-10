@@ -39,8 +39,8 @@ const Home: NextPage = () => {
   let text = desc || defaultDesc;
 
   const prompt =
-    `Generate an online course introduction in ${promptObj[lang]} that is friendly but has academic language. Use a very eye-catching title and display the content in a list format.
-    The final paragraph of text starts with emoji, and should be provocative and entice users to sign up.
+    `Generate an online course introduction in ${promptObj[lang]} that is friendly but has academic language. Use a very eye-catching title, and then display the content in a list format 
+    The final paragraph starts with emoji, and should be provocative and entice users to sign up.
     The course title is ${text}${text.slice(-1) === "." ? "" : "."}
     `;
 
@@ -107,7 +107,7 @@ const Home: NextPage = () => {
               className="mb-5 sm:mb-0"
             />
             <p className="text-left font-medium">
-              Write a few senttence about the course.
+              Write a few sentence about the course.
             </p>
           </div>
           <textarea
