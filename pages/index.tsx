@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import DropDown, { VibeType } from "../components/DropDown";
+import ScenarioDropDown, {ScenarioType} from "../components/ScenarioDropDown";
 import Footer from "../components/Footer";
 import Github from "../components/GitHub";
 import Header from "../components/Header";
@@ -14,14 +15,15 @@ import ResizablePanel from "../components/ResizablePanel";
 const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
   const [desc, setDesc] = useState("");
-  const [lang, setLang] = useState<VibeType>("English");
+  const [lang, setLang] = useState<VibeType>("中文");
+  const [scenario, setScenario] = useState<ScenarioType>("ClassNow");
   const [generatedIntro, setGeneratedIntro] = useState<string>("");
 
   console.log("Streamed response: ", generatedIntro);
   
   let promptObj = {
-    'English': "UK English",
     "中文": "Simplified Chinese",
+    'English': "UK English",
     // "繁體中文": "Traditional Chinese",
     // "日本語": "Japanese",
     // "Italiano": "Italian",
@@ -38,17 +40,31 @@ const Home: NextPage = () => {
 
   let text = desc || defaultDesc;
 
-  const prompt =
-    `Generate an online course introduction in ${promptObj[lang]} that is friendly but has academic language. Use a very eye-catching title, and then display the content in a list format 
+  let prompts = {
+    'ClassNow' : `Generate an online course introduction in ${promptObj[lang]} that is friendly but has academic language. Use a very eye-catching title, and then display the content in a list format 
     The final paragraph starts with emoji, and should be provocative and entice users to sign up.
     The course title is ${text}${text.slice(-1) === "." ? "" : "."}
-    `;
+    `,
 
+    '朋友圈' : `微信朋友圈的风格是个性化、生活化、简单易懂，轻松幽默。以第一人称的方式呈现，加入自己的感受，内容真实吸引人，使用简单而有趣的文字，例如短语，俚语和网络流行语等。配上一些表情符号，增强文章的趣味性和可读性。不加 hashtag
+    请使用微信朋友圈的风格写一个推广文案， 推广内容的介绍是${text}${text.slice(-1) === "." ? "" : "."}
+    `,
+
+    '小红书' : `小红书文案的风格是简约、生动、有趣，让用户感到亲切友好。带有流行、时尚、购物元素。鼓励用户发现、了解、使用产品。使用很吸引眼球的标题，内容以列表形式呈现，句子丰富一点，在每个列表开头都加不同的有趣的 emoji ，结尾总结并吸引用户，文字最后加一些 hashtag。
+    
+    请使用小红书的风格写一个推广文案， 推广内容的介绍是${text}${text.slice(-1) === "." ? "" : "."} 
+    `,
+  }
+
+  const prompt = prompts[scenario];
 
   const generateDesc = async (e: any) => {
     e.preventDefault();
     setGeneratedIntro("");
     setLoading(true);
+
+    console.log(prompt);
+
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: {
@@ -92,20 +108,14 @@ const Home: NextPage = () => {
       </Head>
 
       <Header />
-      <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4 mt-12 sm:mt-20">
+      <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4">
         <h1 className="sm:text-6xl text-4xl max-w-2xl font-bold text-slate-900">
           Generate online course introduction in seconds
         </h1>
         {/* <p className="text-slate-500 mt-5">18,167 bios generated so far.</p> */}
         <div className="max-w-xl w-full">
           <div className="flex mt-10 items-center space-x-3">
-            <Image
-              src="/1-black.png"
-              width={30}
-              height={30}
-              alt="1 icon"
-              className="mb-5 sm:mb-0"
-            />
+            <span className="w-7 h-7 rounded-full bg-black text-white text-center leading-7">1</span>
             <p className="text-left font-medium">
               Write a few sentence about the course.
             </p>
@@ -114,13 +124,21 @@ const Home: NextPage = () => {
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
             rows={4}
-            className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black my-5"
+            className="w-full rounded-md border-gray-300 shadow-sm focus:border-black focus:ring-black mt-5"
             placeholder={
               "e.g. " + defaultDesc
             }
           />
-          <div className="flex mb-5 items-center space-x-3">
-            <Image src="/2-black.png" width={30} height={30} alt="1 icon" />
+          <div className="flex my-4 items-center space-x-3">
+          <span className="w-7 h-7 rounded-full bg-black text-white text-center leading-7">2</span>
+            <p className="text-left font-medium">Select where you want to post it.</p>
+          </div>
+          <div className="block">
+            <ScenarioDropDown scenario={scenario} setScenario={(newScenario) => setScenario(newScenario)} />
+          </div>
+
+          <div className="flex my-4 items-center space-x-3">
+          <span className="w-7 h-7 rounded-full bg-black text-white text-center leading-7">3</span>
             <p className="text-left font-medium">Select your language.</p>
           </div>
           <div className="block">
