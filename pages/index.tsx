@@ -110,7 +110,7 @@ const Home: NextPage = () => {
       <Header />
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4">
         <h1 className="sm:text-6xl text-4xl max-w-2xl font-bold text-slate-900 mt-10">
-          Generate copywriting in seconds
+          Generate promotional copywriting in seconds
         </h1>
         {/* <p className="text-slate-500 mt-5">3,508 copywritings generated so far.</p> */}
         <div className="max-w-xl w-full">
@@ -150,7 +150,7 @@ const Home: NextPage = () => {
               className="bg-black rounded-xl text-white font-medium px-4 py-2 sm:mt-10 mt-8 hover:bg-black/80 w-full"
               onClick={(e) => generateDesc(e)}
             >
-              Generate course intro &rarr;
+              Generate copywriting &rarr;
             </button>
           )}
           {loading && (
@@ -175,7 +175,7 @@ const Home: NextPage = () => {
                 <>
                   <div>
                     <h2 className="sm:text-4xl text-3xl font-bold text-slate-900 mx-auto">
-                      Your generated course intro
+                      Your generated copywriting
                     </h2>
                   </div>
                   <div className="space-y-8 flex flex-col items-center justify-center max-w-xl mx-auto whitespace-pre-wrap">
@@ -184,7 +184,7 @@ const Home: NextPage = () => {
                       className="bg-white rounded-xl shadow-md p-4 hover:bg-gray-100 transition cursor-copy border text-left"
                       onClick={() => {
                         navigator.clipboard.writeText(generatedIntro);
-                        toast("Course intro copied to clipboard", {
+                        toast("Copywriting copied to clipboard", {
                           icon: "✂️",
                         });
                       }}
