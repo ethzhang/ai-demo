@@ -50,7 +50,7 @@ const Home: NextPage = () => {
     请使用微信朋友圈的风格写一个推广文案， 推广内容的介绍是${text}${text.slice(-1) === "." ? "" : "."}
     `,
 
-    '小红书' : `小红书文案的风格是简约、生动、有趣，让用户感到亲切友好。带有流行、时尚、购物元素。鼓励用户发现、了解、使用产品。使用很吸引眼球的标题，内容以列表形式呈现，句子丰富一点，在每个列表开头都加不同的有趣的 emoji ，结尾总结并吸引用户，文字最后加一些 hashtag。
+    '小红书' : `小红书文案的风格是简约、生动、有趣，让用户感到亲切友好。带有流行、时尚、购物元素。鼓励用户发现、了解、使用产品。使用很吸引眼球的标题。内容以列表形式呈现，句子丰富一点，在每个列表开头都加不同的有趣的 emoji 。结尾总结并吸引用户，文字最后加一些 hashtag。
     
     请使用小红书的风格写一个推广文案， 推广内容的介绍是${text}${text.slice(-1) === "." ? "" : "."} 
     `,
@@ -110,9 +110,9 @@ const Home: NextPage = () => {
       <Header />
       <main className="flex flex-1 w-full flex-col items-center justify-center text-center px-4">
         <h1 className="sm:text-6xl text-4xl max-w-2xl font-bold text-slate-900">
-          Generate online course introduction in seconds
+          Generate copywriting in seconds
         </h1>
-        {/* <p className="text-slate-500 mt-5">18,167 bios generated so far.</p> */}
+        {/* <p className="text-slate-500 mt-5">3,508 copywritings generated so far.</p> */}
         <div className="max-w-xl w-full">
           <div className="flex mt-10 items-center space-x-3">
             <span className="w-7 h-7 rounded-full bg-black text-white text-center leading-7">1</span>
@@ -139,7 +139,7 @@ const Home: NextPage = () => {
 
           <div className="flex my-4 items-center space-x-3">
           <span className="w-7 h-7 rounded-full bg-black text-white text-center leading-7">3</span>
-            <p className="text-left font-medium">Select your language.</p>
+            <p className="text-left font-medium">Select your preferred language.</p>
           </div>
           <div className="block">
             <DropDown vibe={lang} setVibe={(newLang) => setLang(newLang)} />
