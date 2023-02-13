@@ -16,7 +16,7 @@ const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
   const [desc, setDesc] = useState("");
   const [lang, setLang] = useState<VibeType>("中文");
-  const [scenario, setScenario] = useState<ScenarioType>("ClassNow");
+  const [scenario, setScenario] = useState<ScenarioType>("课程及活动");
   const [generatedIntro, setGeneratedIntro] = useState<string>("");
 
   console.log("Streamed response: ", generatedIntro);
@@ -41,16 +41,16 @@ const Home: NextPage = () => {
   let text = desc || defaultDesc;
 
   let prompts = {
-    'ClassNow' : `Generate an online course introduction in ${promptObj[lang]} that is friendly but has academic language. Use a very eye-catching title, and then display the content in a list format 
+    '课程及活动' : `Generate an online course introduction in ${promptObj[lang]} that is friendly but has academic language. Use a very eye-catching title, and then display the content in a list format 
     The final paragraph starts with emoji, and should be provocative and entice users to sign up.
     The course title is ${text}${text.slice(-1) === "." ? "" : "."}
     `,
 
-    '朋友圈' : `微信朋友圈的风格是个性化、生活化、简单易懂，轻松幽默。以第一人称的方式呈现，加入自己的感受，内容真实吸引人，使用简单而有趣的文字，例如短语，俚语和网络流行语等。配上一些表情符号，增强文章的趣味性和可读性。不加 hashtag
+    '朋友圈文案' : `微信朋友圈的风格是个性化、生活化、简单易懂，轻松幽默。以第一人称的方式呈现，加入自己的感受，内容真实吸引人，使用简单而有趣的文字，例如短语，俚语和网络流行语等。配上一些表情符号，增强文章的趣味性和可读性。不加 hashtag
     请使用微信朋友圈的风格写一个${promptObj[lang]}推广文案， 推广内容的介绍是${text}${text.slice(-1) === "." ? "" : "."}
     `,
 
-    '小红书' : `小红书文案的风格是简约、生动、有趣，让用户感到亲切友好。带有流行、时尚、购物元素。鼓励用户发现、了解、使用产品。使用很吸引眼球的标题。内容以列表形式呈现，句子丰富一点，在每个列表开头都加不同的emoji 。结尾总结并吸引用户，文字最后加一些 hashtag。
+    '小红书文案' : `小红书文案的风格是简约、生动、有趣，让用户感到亲切友好。带有流行、时尚、购物元素。鼓励用户发现、了解、使用产品。使用很吸引眼球的标题。内容以列表形式呈现，句子丰富一点，在每个列表开头都加不同的emoji 。结尾总结并吸引用户，文字最后加一些 hashtag。
     
     请使用小红书的风格写一个${promptObj[lang]}推广文案， 推广内容的介绍是${text}${text.slice(-1) === "." ? "" : "."} 
     `,

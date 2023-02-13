@@ -12,9 +12,9 @@ function classNames(...classes: string[]) {
 
 
 const scenarios = [
-  "ClassNow",
-  "朋友圈",
-  '小红书'
+  "课程及活动",
+  "朋友圈文案",
+  '小红书文案'
 ] as const;
 
 export type ScenarioType = typeof scenarios[number];
