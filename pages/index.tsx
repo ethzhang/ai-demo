@@ -63,7 +63,7 @@ const Home: NextPage = () => {
     setGeneratedIntro("");
     setLoading(true);
 
-    console.log(prompt);
+    // console.log(prompt);
 
     const response = await fetch("/api/generate", {
       method: "POST",
