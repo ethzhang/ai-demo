@@ -70,4 +70,4 @@ ClassNow AI Helper is released under the MIT license. You are free to use and mo
 We would like to express our sincere gratitude to OpenAI for developing the powerful ChatGPT model and making it available for use. We would also like to thank the Next.js and Vercel communities for providing excellent technology support for this project.
 
 ## Contact Us
-If you have any questions, suggestions, or issues, please feel free to contact us via email at [support@classnow.com](mailto:support@classnow.com). We welcome any feedback and would be happy to help you with any questions or concerns you may have.
+If you have any questions, suggestions, or issues, please feel free to contact us via email at [support@theclassnow.com](mailto:support@theclassnow.com). We welcome any feedback and would be happy to help you with any questions or concerns you may have.
