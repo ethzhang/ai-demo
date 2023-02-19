@@ -9,7 +9,7 @@ Users can visit the [ClassNow AI Helper](https://ai.theclassnow.com) website, in
 
 ## Technical Details
 
-Inspired by TwtterBio and Danny Richman. Powerd by OpenAI, Next.js, Vercel and Tailwind CSS.
+Inspired by [TwtterBio](https://github.com/Nutlope/twitterbio) and [Danny Richman](https://twitter.com/DannyRichman/status/1598254671591723008?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1598254671591723008%7Ctwgr%5Eb7deab6eb03d86a1b9ac13f7e38cdeab57a40cbb%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Fwww.buzzfeednews.com%2Farticle%2Ftomwarren%2Fai-app-dyslexic-email-writer-help). Powerd by [OpenAI](https://openai.com/), [Next.js](https://nextjs.org/), [Vercel](https://vercel.com/) and [Tailwind CSS](https://tailwindcss.com/).
 
 ClassNow AI Helper uses the OpenAI model to generate course descriptions and marketing copy. The model is a natural language processing model based on the Transformer architecture developed by OpenAI, with powerful text generation capabilities. By learning from a large amount of text data, the model can automatically learn language patterns and generate high-quality text content.
 
