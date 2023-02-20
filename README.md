@@ -1,6 +1,6 @@
 # [ClassNow Helper](https://ai.theclassnow.com/)
 
-ClassNow AI Helper is an automated tool for generating course descriptions and marketing copywriting. Using the powerful natural language processing capabilities of `OpenAI`, it can generate high-quality course descriptions and marketing copy. Additionally, the tool supports publishing to various social media platforms, including classnow websites, WeChat Moments, Xiaohongshu, Twitter, and Facebook.
+ClassNow AI Helper is an automated tool for generating course descriptions and marketing copywriting. Using the powerful natural language processing capabilities of `OpenAI`, it can generate high-quality course descriptions and marketing copy. Additionally, the tool supports publishing to various social media platforms, including classnow websites, WeChat Moments, WeChat Channels, Xiaohongshu and LinkedIn.
 
 The project is built using [Vercel](https://vercel.com) and [Next.js](https://nextjs.org/) technologies, allowing the tool to quickly respond to user requests and support high concurrency.
 

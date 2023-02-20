@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   const [loading, setLoading] = useState(false);
   const [desc, setDesc] = useState("");
   const [lang, setLang] = useState<VibeType>("中文");
-  const [scenario, setScenario] = useState<ScenarioType>("课程及活动");
+  const [scenario, setScenario] = useState<ScenarioType>("Courses & Events\t|\t课程及活动");
   const [generatedIntro, setGeneratedIntro] = useState<string>("");
 
   console.log("Streamed response: ", generatedIntro);
@@ -40,43 +40,43 @@ const Home: NextPage = () => {
   let text = desc || defaultDesc;
 
   let prompts = {
-    课程及活动: `Generate an online course introduction in ${
+    'Courses & Events\t|\t课程及活动': `Generate an online course introduction in ${
       promptObj[lang]
     } that is friendly but has academic language. Use a very eye-catching title, and then display the content in a list format 
     The final paragraph starts with emoji, and should be provocative and entice users to sign up.
     The course title is: ${text}${text.slice(-1) === "." ? "" : "."}`,
 
-    朋友圈文案: `微信朋友圈的风格是个性化、生活化、简单易懂，轻松幽默。以第一人称的方式呈现，加入自己的感受，内容真实吸引人，使用简单而有趣的文字，例如短语，俚语和网络流行语等。配上一些表情符号，增强文章的趣味性和可读性。不加 hashtag
+    'WeChat Moments\t|\t朋友圈文案': `微信朋友圈的风格是个性化、生活化、简单易懂，轻松幽默。以第一人称的方式呈现，加入自己的感受，内容真实吸引人，使用简单而有趣的文字，例如短语，俚语和网络流行语等。配上一些表情符号，增强文章的趣味性和可读性。不加 hashtag
     请使用微信朋友圈的风格写一个${
       promptObj[lang]
     }推广文案， 推广内容的介绍是：${text}${text.slice(-1) === "." ? "" : "."}`,
 
-    小红书文案: `小红书文案的风格是简约、生动、有趣，让用户感到亲切友好。带有流行、时尚、购物元素。鼓励用户发现、了解、使用产品。使用很吸引眼球的标题。内容以列表形式呈现，句子丰富一点，在每个列表开头都加不同的emoji 。结尾总结并吸引用户，文字最后加一些 hashtag。
+    'Xiaohongshu\t|\t小红书文案': `小红书文案的风格是简约、生动、有趣，让用户感到亲切友好。带有流行、时尚、购物元素。鼓励用户发现、了解、使用产品。使用很吸引眼球的标题。内容以列表形式呈现，句子丰富一点，在每个列表开头都加不同的emoji 。结尾总结并吸引用户，文字最后加一些 hashtag。
     
     请使用小红书的风格写一个${
       promptObj[lang]
     }推广文案， 推广内容的介绍是：${text}${text.slice(-1) === "." ? "" : "."} `,
 
-    抖音: `抖音是一款注重内容和互动的短视频应用，它的风格是短小精悍，情感化，有趣有料，非常口语化，吸引用户注意力和产生共鸣。避免使用过于商业化的语言。带有流行，购物，营销元素。结尾添加一些 hashtag
+    'TikTok\t|\t抖音': `抖音是一款注重内容和互动的短视频应用，它的风格是短小精悍，情感化，有趣有料，非常口语化，吸引用户注意力和产生共鸣。避免使用过于商业化的语言。带有流行，购物，营销元素。结尾添加一些 hashtag
 
     请使用抖音的风格写一个${
       promptObj[lang]
     }推广文案， 推广内容的介绍是：${text}${text.slice(-1) === "." ? "" : "."}`,
 
-    微信视频号: `微信视频号语言风格是简洁生动，亲切自然，富有表现力和情感化的。以轻松活泼为主，尽量贴近用户的口感，易于理解和接受。 通常会采用大众化的语言和流行的网络用语，通过引起共鸣、制造情感冲击等方式，让用户更容易产生共鸣和记忆深刻。在营销方面，微信视频号的文案往往会采用强调产品特点和品牌形象的方式，激发用户的购买欲望。
+    'WeChat Channels\t|\t微信视频号': `微信视频号语言风格是简洁生动，亲切自然，富有表现力和情感化的。以轻松活泼为主，尽量贴近用户的口感，易于理解和接受。 通常会采用大众化的语言和流行的网络用语，通过引起共鸣、制造情感冲击等方式，让用户更容易产生共鸣和记忆深刻。在营销方面，微信视频号的文案往往会采用强调产品特点和品牌形象的方式，激发用户的购买欲望。
     
     请使用微信视频号的风格写一个${
       promptObj[lang]
     }推广文案， 推广内容的介绍是：${text}${text.slice(-1) === "." ? "" : "."}
     `,
 
-    Twitter: `Generate a series of short and attention-grabbing Twitter copywriting for a new online course in ${
+    'Twitter\t|\t推特': `Generate a series of short and attention-grabbing Twitter copywriting for a new online course in ${
       promptObj[lang]
     }. The course title is: ${text}${text.slice(-1) === "." ? "" : "."}
 
     The copywriting style should be concise, highlighting the unique features of the product. Use emotional language to capture users' attention and encourage interaction. Include a clear Call to Action, such as asking users to join the discussion, visit the official website, and register. The copy should be kept within 280 characters.`,
 
-    LinkedIn: `LinkedIn的营销文案风格应该是专业、正式、知识性强、注重数据和事实， 同时也要充满热情和动人心弦的感性表达，以吸引受众的注意。在语言上要准确、简洁，措辞要得体，注意语法和标点的正确性，避免使用口语化、夸张、引人注目但不严谨的语言。另外，还要关注行业热点和趋势，加入关键词和标签，以提高搜索和曝光度。
+    'LinkedIn\t|\t领英': `LinkedIn的营销文案风格应该是专业、正式、知识性强、注重数据和事实， 同时也要充满热情和动人心弦的感性表达，以吸引受众的注意。在语言上要准确、简洁，措辞要得体，注意语法和标点的正确性，避免使用口语化、夸张、引人注目但不严谨的语言。另外，还要关注行业热点和趋势，加入关键词和标签，以提高搜索和曝光度。
 
     请使用LinkedIn的风格写一个${
       promptObj[lang]
