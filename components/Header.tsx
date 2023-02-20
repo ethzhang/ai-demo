@@ -9,16 +9,16 @@ export default function Header() {
         <Image
           alt="header text"
           src="/classnow-logo.png"
-          className=" "
           width={85}
           height={32}
         />
-        <h1 className="sm:text-4xl text-2xl font-bold ml-2 tracking-tight">
+        <div className="w-2"/>
+        <h1 className="sm:text-2xl text-xl font-bold ml-2 tracking-tight text-slate-900">
           ClassNow AI Helper
         </h1>
       </Link>
 
-      
+
     </header>
   );
 }
