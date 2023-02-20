@@ -14,11 +14,11 @@ function classNames(...classes: string[]) {
 const scenarios = [
   "Courses & Events\t|\t课程及活动",
   "WeChat Moments\t|\t朋友圈文案",
-  'WeChat Channels\t|\t微信视频号',
-  'Xiaohongshu\t|\t小红书文案',
-  'TikTok\t|\t抖音',
-  'Twitter\t|\t推特',
-  'LinkedIn\t|\t领英'
+  "WeChat Channels\t|\t微信视频号",
+  "Xiaohongshu\t|\t小红书文案",
+  "TikTok\t|\t抖音",
+  "Twitter\t|\t推特",
+  "LinkedIn\t|\t领英"
 ] as const;
 
 export type ScenarioType = typeof scenarios[number];
