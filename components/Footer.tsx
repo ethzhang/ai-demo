@@ -1,6 +1,30 @@
-import Link from "next/link";
+import Image from "next/image";
+import {Popover} from "antd";
 
 export default function Footer() {
+  const weChatQRCode = (
+    <div>
+      <span className="text-base font-bold tracking-wide text-gray-900">
+          WeChat Landing Page
+      </span>
+      <Image
+        alt="QR code of Classnow offical account"
+        src="/weChatLandingQR.png"
+        width={200}
+        height={200}
+      />
+      <span className="text-base font-bold tracking-wide text-gray-900">
+          Collaboration
+      </span>
+      <Image
+        alt="QR code of Classnow service account"
+        src="/weChatCollaborationQR.jpg"
+        width={200}
+        height={200}
+      />
+    </div>
+  );
+
   return (
     <div className="px-4 mt-16 pt-8 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 border-t">
     <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -11,28 +35,16 @@ export default function Footer() {
           title="Company"
           className="inline-flex items-center"
         >
-          <svg
-            className="w-8 text-deep-purple-accent-400"
-            viewBox="0 0 24 24"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeMiterlimit="10"
-            stroke="currentColor"
-            fill="none"
-          >
-            <rect x="3" y="1" width="7" height="12" />
-            <rect x="3" y="17" width="7" height="6" />
-            <rect x="14" y="1" width="7" height="6" />
-            <rect x="14" y="11" width="7" height="12" />
-          </svg>
-          <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-            ClassNow
-          </span>
+          <Image
+            alt="Classnow logo"
+            src="/classnow-logo.png"
+            width={70}
+            height={70}
+          />
         </a>
         <div className="mt-4 lg:max-w-fit">
           <p className="text-sm text-gray-600">
-          Empowering Educators and Businesses to Share their Knowledge and Skills with the World.
+          Empowering Educators and Businesses.<br/>Share their Knowledge and Skills with the World.
           </p>
 
           <p className="mt-4 text-sm text-gray-600">
@@ -41,7 +53,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="space-y-2 text-sm">
-        <p className="text-base font-bold tracking-wide text-gray-900">
+        <p className="text-base font-bold tracking-wide text-gray-900 h-10">
           Contacts
         </p>
         <div className="flex">
@@ -66,6 +78,14 @@ export default function Footer() {
             info@theclassnow.com
           </a>
         </div>
+        <div className="flex">
+          <a
+            href="https://www.theclassnow.com/"
+            className="transition-colors duration-300 text-gray-600 text-deep-purple-accent-400 hover:text-deep-purple-800"
+          >
+            www.theclassnow.com
+          </a>
+        </div>
         {/* <div className="flex">
           <p className="mr-1 text-gray-600">Address:</p>
           <a
@@ -81,12 +101,12 @@ export default function Footer() {
         </div> */}
       </div>
       <div>
-        <span className="text-base font-bold tracking-wide text-gray-900">
+        <p className="text-base font-bold tracking-wide text-gray-900 h-10">
           Social
-        </span>
+        </p>
         <div className="flex items-center mt-1 space-x-3">
           <a
-            href="/"
+            href="https://twitter.com/_classnow_"
             className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
@@ -94,25 +114,30 @@ export default function Footer() {
             </svg>
           </a>
           <a
-            href="/"
+            href="https://discord.gg/pGhp3BjQ"
             className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
           >
-            <svg viewBox="0 0 30 30" fill="currentColor" className="h-6">
-              <circle cx="15" cy="15" r="4" />
-              <path d="M19.999,3h-10C6.14,3,3,6.141,3,10.001v10C3,23.86,6.141,27,10.001,27h10C23.86,27,27,23.859,27,19.999v-10   C27,6.14,23.859,3,19.999,3z M15,21c-3.309,0-6-2.691-6-6s2.691-6,6-6s6,2.691,6,6S18.309,21,15,21z M22,9c-0.552,0-1-0.448-1-1   c0-0.552,0.448-1,1-1s1,0.448,1,1C23,8.552,22.552,9,22,9z" />
+            <svg width="16" height="16" fill="currentColor" className="bi bi-discord" viewBox="0 0 16 16">
+              <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"/>
             </svg>
           </a>
           <a
-            href="/"
+            href="https://www.linkedin.com/company/71020559"
             className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400"
           >
-            <svg viewBox="0 0 24 24" fill="currentColor" className="h-5">
-              <path d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z" />
+            <svg width="16" height="16" fill="currentColor" className="bi bi-linkedin" viewBox="0 0 16 16">
+              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
             </svg>
           </a>
+          <Popover content={weChatQRCode}>
+            <svg width="16" height="16" fill="currentColor" className="bi bi-wechat" viewBox="0 0 16 16">
+              <path d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02S16 8.191 16 10.411c0 1.21-.65 2.301-1.666 3.036a.324.324 0 0 0-.12.366l.218.81a.616.616 0 0 1 .029.117.166.166 0 0 1-.162.162.177.177 0 0 1-.092-.03l-1.057-.61a.519.519 0 0 0-.256-.074.509.509 0 0 0-.142.021 5.668 5.668 0 0 1-1.576.22ZM9.064 9.542a.647.647 0 1 0 .557-1 .645.645 0 0 0-.646.647.615.615 0 0 0 .09.353Zm3.232.001a.646.646 0 1 0 .546-1 .645.645 0 0 0-.644.644.627.627 0 0 0 .098.356Z"/>
+              <path d="M0 6.826c0 1.455.781 2.765 2.001 3.656a.385.385 0 0 1 .143.439l-.161.6-.1.373a.499.499 0 0 0-.032.14.192.192 0 0 0 .193.193c.039 0 .077-.01.111-.029l1.268-.733a.622.622 0 0 1 .308-.088c.058 0 .116.009.171.025a6.83 6.83 0 0 0 1.625.26 4.45 4.45 0 0 1-.177-1.251c0-2.936 2.785-5.02 5.824-5.02.05 0 .1 0 .15.002C10.587 3.429 8.392 2 5.796 2 2.596 2 0 4.16 0 6.826Zm4.632-1.555a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0Zm3.875 0a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0Z"/>
+            </svg>
+          </Popover>
         </div>
         <p className="mt-4 text-sm text-gray-500">
-          
+
         </p>
       </div>
     </div>
